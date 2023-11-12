@@ -1,0 +1,46 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* ボックス全体のスタイル */
+.all {
+    width: 1262px;
+    height: 719px;
+    margin-top: 50px;
+    margin-left: 135px;
+    border: solid #d3d3d3;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #d3d3d3;
+  }
+  
+h2{
+    color: #000;
+text-align: center;
+font-family: Goblin One;
+font-size: 48px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.detail{
+    color: #000;
+text-align: center;
+font-family: Goblin One;
+
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-top: 100px;
+}
+
+.field{
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.button{
+    margin-top: 30px;
+    font-size: 10px;
+}

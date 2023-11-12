@@ -1,0 +1,21 @@
+
+<h1>Artist</h1>
+
+<%= form_for @music do |f| %>
+  <%= render 'musics/error_messages', model: f.object %> 
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
+  <%= f.label :content,"アーティスト名" %>
+  <%= f.text_field :content %>
+
+  <%= f.select :category, [["邦ロック", "japaneserock"],["洋ロック", "westernrock"], ["J-POP", "japanesepop"], ["K-POP", "Kpop"], ["アイドル", "idol"], ["アニメ", "anime"], ["ヒップホップ", "hiphop"],["ジャズ", "jazz"], ["クラシック", "classic"], ["演歌", "enka"]], include_blank: "ジャンル" %>
+
+
+  <%= f.submit "投稿する" %>
+<% end %>
+
+<%= link_to "一覧に戻る", musics_path %>
+

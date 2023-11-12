@@ -1,0 +1,24 @@
+<h1>曲詳細</h1>
+<ul>
+
+    <li><%= @song.title %></li>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @song.find_youtube_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <%= image_tag @song.image_url, size: "250x200" if @song.image? %>
+    <%= @song.comment %>
+   
+    <% if user_signed_in? %>
+    <% if current_user.already_liked?(@song) %>
+      <%= button_to song_like_path(@song), method: :delete do %>
+        <p>いいねを取り消す</p><%= @song.likes.count %>
+      <% end %>
+    <% else %>
+      <%= button_to song_likes_path(@song), method: :post do %>
+        <p>いいね</p><%= @song.likes.count %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <p>いいねの数 = </p><%= @song.likes.count %>
+  <% end %>
+
+
+</ul>

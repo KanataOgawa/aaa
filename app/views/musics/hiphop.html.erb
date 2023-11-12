@@ -1,0 +1,18 @@
+<h1>ヒップホップ</h1>
+<% if user_signed_in? %>
+  <%= link_to "マイページへ", user_path(current_user.id) %>
+<% end %>
+<h3>投稿を検索</h3>
+ <%= form_tag({controller:"musics",action:"hiphop"}, method: :get) do %>
+   <%= text_field_tag :search %>
+   <%= submit_tag '検索する'  %>
+<% end %>
+<% @musics.each do |t| %>
+  <% if t.category == "hiphop" %>  
+  <%= image_tag t.image_url, size: "250x200" if t.image? %>
+    <p>アーティスト名:<%= t.content %></p>
+     <%= button_to "削除する", music_path(t.id), method: :delete %>
+     <%= link_to "曲名一覧ページへ", artist_songs_path(id: t.id) %>
+
+  <% end %>
+<% end %>

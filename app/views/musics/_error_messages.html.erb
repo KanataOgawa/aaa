@@ -1,0 +1,10 @@
+<% if model.errors.any? %>
+  <div class="alert alert-warning">
+    <ul>
+      <% model.errors.full_messages.each do |message| %>
+       <h2>すでに存在するデータです</h2>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+

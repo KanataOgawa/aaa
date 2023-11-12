@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Musictwitter</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <header>
+    <h1>MusicTwitter</h1>
+    <div class="header-list">
+    <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon"/>
+    <label for="menu-icon"></label>
+    <nav class="nav">     
+      <ul class="pt-5">
+    <% if user_signed_in? %>
+    <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li> 
+       <li> <%= link_to "Artist Post", new_music_path %> <li>
+       <li><%= link_to "Artist Song  Post",  new_song_path %> <li>
+       <li><%= link_to "Idol", musics_idol_path %> <li>
+            <li> <%= link_to "JapaneseRock",  musics_japaneserock_path %><li>
+            <li><%= link_to "WesternRock",  musics_westernrock_path %><li>
+            <li><%= link_to "Anime",  musics_anime_path %><li>
+            <li><%= link_to "J-POP",  musics_japanesepop_path %><li>
+     <li><%= link_to "K-POP",  musics_Kpop_path %><li>
+     <li><%= link_to "演歌", musics_enka_path %></li>
+     <li><%= link_to "Jazz", musics_jazz_path %></li>
+     <li><%= link_to "Classic", musics_classic_path %></li>
+     <li><%= link_to "Hiphop", musics_hiphop_path %></li>
+    <% else %>
+    <li><%= link_to "新規登録", new_user_registration_path %></li>
+            <li><%= link_to "ログイン", new_user_session_path %></li>
+    <script src="https://kit.fontawesome.com/51f0a5849e.js" crossorigin="anonymous"></script>
+    <% end %>
+    </ul>
+   </nav>
+  </div>
+ </header>
+ <main>
+    <%= yield %>
+    </main>
+  </body>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Goblin+One&display=swap" rel="stylesheet">
+</html>

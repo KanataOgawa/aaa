@@ -1,0 +1,17 @@
+<h1>マイページ</h1>
+<p>名前 : <%= @user.name %></p>
+<p>メールアドレス : <%= @user.email %></p>
+<p>プロフィール : <%= @user.profile %></p>
+
+<% if current_user.id == @user.id %>
+  <%= link_to "編集する", edit_user_registration_path %>
+<% end %>
+
+<h2>ユーザーの投稿一覧</h2>
+<% @user.songs.each do |t| %>
+  <%= t.user.name %>
+  <%= t.title %>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= t.find_youtube_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<% end %>
+
+<%= link_to "一覧に戻る", musics_path %>

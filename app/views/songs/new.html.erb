@@ -1,0 +1,25 @@
+<h1>Song</h1>
+
+<%= form_for @song do |f| %>
+  <%= f.label :title, "Title" %>
+  <%= f.text_field :title %>
+
+  <%= f.label :music_id, "Artist" %>
+  <%= f.collection_select :music_id, Music.all, :id, :content, prompt: "アーティストを選択" %>
+
+  <%= f.submit "Post" %>
+
+  <%= f.label :youtube_url %>
+  <%= f.text_field :youtube_url, :size => 140 %>
+
+  <%= f.label :comment, "Comment" %>
+  <%= f.text_field :comment %>
+
+  <div class="field">
+    <%= f.label :image, "Image" %>
+    <%= f.file_field :image %>
+  </div>
+
+
+  
+<% end %>
